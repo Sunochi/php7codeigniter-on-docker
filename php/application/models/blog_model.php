@@ -14,4 +14,12 @@ class Blog_model extends CI_Model{
 		// result()メソッドは、結果をオブジェクトの配列として、または失敗した場合には 空の配列 を返します。
 		return $query->result();
 	}
+
+	function add_new_entry($name, $body){
+		$data = array(
+			"entry_name" => $name,
+			"entry_body" => $body
+		);
+		$this->db->insert("entry", $data);
+	}
 }
